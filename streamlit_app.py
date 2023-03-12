@@ -88,3 +88,13 @@ my_cur.execute("insert into FRUIT_LOAD_LIST values('from streamlit')")
 
 streamlit.stop()
 
+import snowflake.connector
+
+my_cnx = snowflake.connector.connect(**streamlit.secrets["snowflake"])
+my_cur = my_cnx.cursor()
+#my_cur.execute("SELECT CURRENT_USER(), CURRENT_ACCOUNT(), CURRENT_REGION()")
+my_cur.execute("SELECT * FROM FRUIT_LOAD_LIST")
+my_data=my_cur.fetchall()
+streamlit.header("My fruit list contains")
+streamlit.dataframe(my_data)
+
