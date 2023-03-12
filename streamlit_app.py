@@ -35,7 +35,8 @@ streamlit.dataframe(fruit_to_show)
 #new section to display fruity wise api resdponse
 streamlit.header("Fruityvice Fruit Advice!")
 import requests
-fruityvice_response = requests.get("https://fruityvice.com/api/fruit/watermelon")
+#fruityvice_response = requests.get("https://fruityvice.com/api/fruit/watermelon")
+fruityvice_response = requests.get("https://fruityvice.com/api/fruit/"+kiwi")
 streamlit.text(fruityvice_response.json())#just writes data to the screen
 
 
