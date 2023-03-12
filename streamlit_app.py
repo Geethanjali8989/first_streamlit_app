@@ -32,6 +32,7 @@ fruit_to_show=my_fruit_list.loc[fruit_selected]
 streamlit.dataframe(fruit_to_show)
 
 
+
 #new section to display fruity wise api resdponse
 streamlit.header("Fruityvice Fruit Advice!")
 import requests
@@ -79,7 +80,8 @@ my_data=my_cur.fetchall()
 streamlit.header("My fruit list contains")
 streamlit.dataframe(my_data)
 
-
+fruit_choices = streamlit.text_input('What fruit would you like to add?','Jackfruit')
+streamlit.write('Thanks for adding ', fruit_choices)
 
 
 
