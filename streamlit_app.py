@@ -75,9 +75,9 @@ my_data_row = my_cur.fetchone()
 #streamlit.text("Hello from Snowflake:")
 streamlit.text("THE FRUIT LOAD LIST CONTAINS")
 streamlit.text(my_data_row)
-
+my_data=my_cur.fetchall()
 streamlit.header("My fruit list contains")
-streamlit.dataframe(my_data_row)
+streamlit.dataframe(my_data)
 
 
 
