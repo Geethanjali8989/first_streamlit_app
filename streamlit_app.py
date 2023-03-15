@@ -1,4 +1,8 @@
 import streamlit
+import pandas
+import requests
+import snowflake.connector
+from urllib.error import URLError
 streamlit.title ("My parents new healthy diner")
 
 streamlit.header ("😍Breakfast menu😍")
@@ -14,7 +18,7 @@ streamlit.text('🥚Hard-Boiled 🍳Free-Range Egg')
 
 streamlit.header('🍌🥭 Build Your Own Fruit Smoothie 🥝🍇')
 
-import pandas
+#import pandas
 
 my_fruit_list = pandas.read_csv("https://uni-lab-files.s3.us-west-2.amazonaws.com/dabw/fruit_macros.txt")
 my_fruit_list = my_fruit_list.set_index('Fruit')
@@ -35,7 +39,7 @@ streamlit.dataframe(fruit_to_show)
 
 #new section to display fruity wise api resdponse
 streamlit.header("Fruityvice Fruit Advice!")
-import requests
+#import requests
 #fruityvice_response = requests.get("https://fruityvice.com/api/fruit/watermelon")
 fruityvice_response = requests.get("https://fruityvice.com/api/fruit/"+ "kiwi")
 streamlit.text(fruityvice_response.json())#just writes data to the screen
@@ -65,8 +69,8 @@ fruityvice_normalized = pandas.json_normalize(fruityvice_response.json())
 streamlit.dataframe(fruityvice_normalized)
 
 
-
-import snowflake.connector
+streamlit.stop()
+#import snowflake.connector
 
 my_cnx = snowflake.connector.connect(**streamlit.secrets["snowflake"])
 my_cur = my_cnx.cursor()
@@ -88,7 +92,6 @@ my_cur.execute("insert into FRUIT_LOAD_LIST values('from streamlit')")
 
 streamlit.stop()
 
-import snowflake.connector
 
 my_cnx = snowflake.connector.connect(**streamlit.secrets["snowflake"])
 my_cur = my_cnx.cursor()
@@ -98,3 +101,22 @@ my_data=my_cur.fetchall()
 streamlit.header("My fruit list contains")
 streamlit.dataframe(my_data)
 
+
+
+
+#if else
+
+
+
+#new section to display fruity wise api resdponse
+streamlit.header("Fruityvice Fruit Advice!")
+try:
+   fruit_choice = streamlit.text_input('What fruit would you like information about?','Apple')
+   if not fruit_choice:
+          streamlit.error("Please select a fruit to get information.")
+   else:
+        fruityvice_response = requests.get("https://fruityvice.com/api/fruit/"+ fruit_choice)
+        fruityvice_normalized = pandas.json_normalize(fruityvice_response.json())
+         streamlit.dataframe(fruityvice_normalized)
+except URL error as e:
+streamlit.error
