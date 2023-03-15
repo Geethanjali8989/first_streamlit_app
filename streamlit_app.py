@@ -55,5 +55,3 @@ try:
     else:
          back_From_function = get_fruityvice_data(fruit_choice)
          streamlit.dataframe(back_From_function)
-
-
