@@ -111,12 +111,12 @@ streamlit.dataframe(my_data)
 #new section to display fruity wise api resdponse
 streamlit.header("Fruityvice Fruit Advice!")
 try:
-   fruit_choice = streamlit.text_input('What fruit would you like information about?','Apple')
-   if not fruit_choice:
+   fruit_choicee = streamlit.text_input('What fruit would you like information about?','Apple')
+   if not fruit_choicee:
           streamlit.error("Please select a fruit to get information.")
    else:
-        fruityvice_response = requests.get("https://fruityvice.com/api/fruit/"+ fruit_choice)
-        fruityvice_normalized = pandas.json_normalize(fruityvice_response.json())
-         streamlit.dataframe(fruityvice_normalized)
+        fruityvice_responsee = requests.get("https://fruityvice.com/api/fruit/"+ fruit_choicee)
+        fruityvice_normalizeed = pandas.json_normalize(fruityvice_responsee.json())
+         streamlit.dataframe(fruityvice_normalizeed)
 except URL error as e:
 streamlit.error
