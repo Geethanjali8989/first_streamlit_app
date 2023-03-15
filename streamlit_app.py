@@ -118,5 +118,5 @@ try:
         fruityvice_responsee = requests.get("https://fruityvice.com/api/fruit/"+ fruit_choicee)
         fruityvice_normalizeed = pandas.json_normalize(fruityvice_responsee.json())
         streamlit.dataframe(fruityvice_normalizeed)
-except URL error as e:
+except URLError as e:
        streamlit.error()
