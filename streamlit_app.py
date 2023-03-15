@@ -36,7 +36,7 @@ fruit_to_show=my_fruit_list.loc[fruit_selected]
 streamlit.dataframe(fruit_to_show)
 
 
-
+streamlit.stop()
 #new section to display fruity wise api resdponse
 streamlit.header("Fruityvice Fruit Advice!")
 #import requests
