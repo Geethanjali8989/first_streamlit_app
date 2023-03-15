@@ -117,6 +117,6 @@ try:
    else:
         fruityvice_responsee = requests.get("https://fruityvice.com/api/fruit/"+ fruit_choicee)
         fruityvice_normalizeed = pandas.json_normalize(fruityvice_responsee.json())
-         streamlit.dataframe(fruityvice_normalizeed)
+        streamlit.dataframe(fruityvice_normalizeed)
 except URL error as e:
-streamlit.error
+       streamlit.error
