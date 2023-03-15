@@ -111,7 +111,7 @@ streamlit.dataframe(my_data)
 #new section to display fruity wise api resdponse
 streamlit.header("Fruityvice Fruit Advice!")
 try:
-   fruit_choicee = streamlit.text_input('What fruit would you like information about?','Apple')
+   fruit_choicee = streamlit.text_input('What fruit would you like information about?')
    if not fruit_choicee:
           streamlit.error("Please select a fruit to get information.")
    else:
