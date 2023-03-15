@@ -41,7 +41,7 @@ streamlit.dataframe(fruit_to_show)
 #challenge lab
 def insert_row_snowflake(new_fruit):
      with  my_cnx.cursor() as my_cur:
-           my_cur.execute("insert into FRUIT_LOAD_LIST values('"+add_my_fruit+"')")
+           my_cur.execute("insert into FRUIT_LOAD_LIST values('"+ add_my_fruit +"')")
            return "Thanks for adding new fruit" + new_fruit
 add_my_fruit = streamlit.text_input('What fruit would you like to add?')
 # add a button to load the fruit
