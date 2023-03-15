@@ -53,7 +53,7 @@ streamlit.dataframe(fruityvice_normalized)
 
 
 
-
+streamlit.stop()
 
 #new section to display fruity wise api resdponse
 streamlit.header("Fruityvice Fruit Advice!")
